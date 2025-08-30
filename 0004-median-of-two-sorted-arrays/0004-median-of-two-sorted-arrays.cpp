@@ -3,17 +3,20 @@ class Solution {
 public:
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
             vector<int> res=nums1;
+            double n=0;
             res.insert(res.end(),nums2.begin(),nums2.end());
+            int m=res.size();
             sort(res.begin(),res.end());
-            if(res.size()%2==1)
+            if(m%2==0)
             {
-                return res[res.size()/2];
-
+                n=(res[m/2]+res[(m/2)-1])/2.0;
+                return n;
             }
             else
             {
-                return (res[(res.size()/2)-1]+res[res.size()/2])/2.0;
+                n=res[(m/2)];
+                return n;
             }
-        
+            return n;
     }
 };
